@@ -1,0 +1,39 @@
+<div class="webtitle border border-light border-top-0 border-left-0 border-right-0" [ngClass]="getClass('webtitle')">
+  <form class="colgroup" #myForm="ngForm">
+      <div style="width: 30%;">
+        <select class="custom-select" [ngClass]="getClass('input-border')" name="webSite" [ngModel]="webSite" (ngModelChange)="websiteChange($event)">
+          <option *ngFor="let item of webSiteList;let itemIndex = index" [value]="item.website">{{ itemIndex }}. {{ item.website }}</option>
+        </select>
+      </div>
+      <div style="width: 60%;">
+        <select class="custom-select" [ngClass]="getClass('input-border')" name="series" [ngModel]="series" (ngModelChange)="seriesChange($event)">
+          <option *ngFor="let item of seriesList;let itemIndex = index" [value]="item.series">{{ itemIndex }}. {{ item.series }}</option>
+        </select>
+      </div>
+      <div style="width: 5%;">
+        <span class="badge badge-secondary" [ngClass]="getClass('badge')">{{ totalcount }}</span>
+      </div>
+      <div style="width: 5%;">
+        <button type="button" class="btn btn-secondary {{sorticon}}" [ngClass]="getClass('btn')" (click)="changeSorting()"></button>
+      </div>
+      <div style="width: 80%;">
+        <div class="input-group">
+          <input type="text" class="form-control" [ngClass]="getClass('input-border')" name="keyword" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="keyword">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" [ngClass]="getClass('btn')" type="button" (click)="clearKeyword()"><i class="fa fa-bath" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </div>
+      <div style="width: 20%;">
+        <select class="custom-select" [ngClass]="getClass('input-border')" name="styleId" [(ngModel)]="styleId" (ngModelChange)="styleChange()">
+          <option value="s1">01. 紅紅的</option>
+          <option value="s2">02. 小粉</option>
+          <option value="s3">03. 哥德式建築</option>
+          <option value="s4">04. 小綠</option>
+          <option value="s5">05. 地中海藍</option>
+          <option value="s6">06. 異國蘭花</option>
+          <option value="s7">07. 小藍</option>
+        </select>
+      </div>
+  </form>
+</div>

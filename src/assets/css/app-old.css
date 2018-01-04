@@ -1,0 +1,266 @@
+body {
+    width: 100%;
+    font-family: Consolas, 微軟正黑體;
+}
+.page-bg-s1 {
+    background-color: #bec6ce;
+}
+.page-bg-s2 {
+    background-color: #ffecd2;
+}
+.page-bg-s3 {
+    background-color: #DBDBDB;
+}
+.page-bg-s4 {
+    background-color: #DEECDD;
+}
+.page-bg-s5 {
+    background-color: #f1e0d6;
+}
+.page-bg-s6 {
+    background-color: #b0d1e5;
+}
+.page-bg-s7 {
+    background-color: #CBEAEA;
+}
+.webtitle {
+    padding: 20px;
+    background-image: url("../images/webtitle.png");
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-size: 1920px;
+    background-color: #000000;
+    color: #FFFFFF;
+    position: sticky;
+    top: 0;
+    z-index: 1071;
+    text-align: center;
+}
+.webtitle-s1 {
+    background-color: #132226;
+}
+.webtitle-s2 {
+    background-color: #FCC8BC;
+}
+.webtitle-s3 {
+    background-color: #6c6b74;
+}
+.webtitle-s4 {
+    background-color: #756F52;
+}
+.webtitle-s5 {
+    background-color: #595775;
+}
+.webtitle-s6 {
+    background-color: #192E5B;
+}
+.webtitle-s7 {
+    background-color: #72afd3;
+}
+.colgroup {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 70%;
+}
+.colgroup div {
+    padding-bottom: 1px;
+    padding-right: 3px;
+}
+.container {
+    max-width: 100%;
+    height: calc(100Vh - 120px);
+    overflow-y: auto;
+}
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.modal.show {
+    z-index: 1073;
+}
+.modal-backdrop {
+    z-index:1072;
+}
+.modal-header {
+    border-bottom: 0px;
+}
+.modal-footer {
+    border-top: 0px;
+}
+.custom-select {
+    color: #000000;
+    border-color: #000000;
+    background-size: 5px 10px;
+    width: 100%;
+}
+.input-border-s1 {
+    color: #040C0E;
+    border-color: #525B56;
+}
+.input-border-s2 {
+    color: #FF6C8C;
+    border-color: #FF6C8C;
+}
+.input-border-s3 {
+    color: #2e303e;
+    border-color: #54678f;
+}
+.input-border-s4 {
+    color: #B5945F;
+    border-color: #B5945F;
+}
+.input-border-s5 {
+    color: #595775;
+    border-color: #aba6bf;
+}
+.input-border-s6 {
+    color: #192E5B;
+    border-color: #1d65a6;
+}
+.input-border-s7 {
+    color: #72afd3;
+    border-color: #EED8AE;
+}
+.badge {
+    padding: 10px 0px;
+    font-size: 11pt;
+    height: 100%;
+    width: 100%;
+}
+.badge-s1 {
+    background-color: #BE9063;
+}
+.badge-s2 {
+    background-color: #FCAAA2;
+}
+.badge-s3 {
+    background-color: #54678f;
+}
+.badge-s4 {
+    background-color: #B5945F;
+}
+.badge-s5 {
+    background-color: #bf988f;
+}
+.badge-s6 {
+    background-color: #f2a104;
+}
+.badge-s7 {
+    background-color: #EED8AE;
+}
+.btn {
+    height: 100%;
+    color: #ffffff;
+}
+.btn-s1 {
+    background-color: #BE9063;
+    border-color: #BE9063;
+}
+.btn-s2 {
+    background-color: #FCAAA2;
+    border-color: #FCAAA2;
+}
+.btn-s3 {
+    background-color: #54678f;
+    border-color: #54678f;
+}
+.btn-s4 {
+    background-color: #B5945F;
+    border-color: #B5945F;
+}
+.btn-s5 {
+    background-color: #bf988f;
+    border-color: #bf988f;
+}
+.btn-s6 {
+    background-color: #f2a104;
+    border-color: #f2a104;
+}
+.btn-s7 {
+    background-color: #EED8AE;
+    border-color: #EED8AE;
+}
+.card {
+    width: 100px;
+    height: 100px;
+    border: 0px;
+}
+.card-header {
+    font-size: 8px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    border-bottom: 0px;
+}
+.card-header-s1 {
+    background-color: #A4978E;
+}
+.card-header-s2 {
+    background-color: #D5A99F;
+}
+.card-header-s3 {
+    background-color: #9199be;
+}
+.card-header-s4 {
+    background-color: #C5C191;
+}
+.card-header-s5 {
+    background-color: #EAD9D5;
+}
+.card-header-s6 {
+    background-color: #72a2c0;
+}
+.card-header-s7 {
+    background-color: #B0E0E6;
+}
+.card-content {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 6px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.card-s1-white {
+    background-color: #BE9063;
+}
+.card-s2-white {
+    background-color: #D5A99F;
+}
+.card-s3-white {
+    background-color: #646b74;
+}
+.card-s4-white {
+    background-color: #C5C191;
+}
+.card-s5-white {
+    background-color: #bf988f;
+}
+.card-s6-white {
+    background-color: #f2a104;
+}
+.card_white-s7 {
+    background-color: #B0E0E6;
+}
+.col {
+    padding: 10px;
+    flex-grow: 0;
+}
+.col_img_size48 {
+    width: 48px;
+    cursor: pointer;
+}
+.openimg {
+    border-radius: .25rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+.openimg img {
+    max-width: 450px;
+}
+.openimg_path {
+    padding: 5px;
+    font-size: 8px;
+    text-align: center;
+}

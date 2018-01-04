@@ -1,0 +1,190 @@
+@stylecnt: 7;
+.pageloop(@counter) when (@counter > 0){
+  .pageloop((@counter - 1));
+  @1: #F6E6D9;
+  @2: #ffecd2;
+  @3: #DBDBDB;
+  @4: #DEECDD;
+  @5: #f1e0d6;
+  @6: #b0d1e5;
+  @7: #CBEAEA;
+  .page-bg-s@{counter}{
+    background: @@counter;
+  }
+}
+.webtitleloop(@counter) when (@counter > 0){
+  .webtitleloop((@counter - 1));
+  @1: #EB7A77;
+  @2: #FCC8BC;
+  @3: #6c6b74;
+  @4: #756F52;
+  @5: #595775;
+  @6: #192E5B;
+  @7: #72afd3;
+  .webtitle-s@{counter}{
+    background-color: @@counter;
+  }
+}
+.badgeloop(@counter) when (@counter > 0){
+  .badgeloop((@counter - 1));
+  @1: #75686B;
+  @2: #FF6C8C;
+  @3: #54678f;
+  @4: #B5945F;
+  @5: #595775;
+  @6: #1d65a6;
+  @7: #72afd3;
+  .input-border-s@{counter}{
+    // color: @@counter;
+    border-color: @@counter;
+  }
+  .badge-s@{counter}{
+    background-color: @@counter;
+  }
+  .btn-s@{counter}{
+    background-color: @@counter;
+    border-color: @@counter;
+  }
+}
+.cardloop(@counter) when (@counter > 0){
+  .cardloop((@counter - 1));
+  @1: #D7C4BB;
+  @2: #D5A99F;
+  @3: #9199be;
+  @4: #C5C191;
+  @5: #EAD9D5;
+  @6: #72a2c0;
+  @7: #B0E0E6;
+  .card-header-s@{counter}{
+    background-color: @@counter;
+  }
+}
+.whitecardloop(@counter) when (@counter > 0){
+  .whitecardloop((@counter - 1));
+  @1: #4B4149;
+  @2: #D5A99F;
+  @3: #646b74;
+  @4: #C5C191;
+  @5: #bf988f;
+  @6: #f2a104;
+  @7: #B0E0E6;
+  .card-white-s@{counter}{
+    background-color: @@counter;
+  }
+}
+
+
+body {
+  width: 100%;
+  font-family: Consolas, 微軟正黑體;
+}
+.pageloop(@stylecnt);
+.webtitle {
+  padding: 20px;
+  background-image: url("../images/webtitle.png");
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  // background-size: 1920px;
+  background-size: image-width('../images/webtitle.png');
+  background-color: #000000;
+  color: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 1071;
+  text-align: center;
+}
+.webtitleloop(@stylecnt);
+.colgroup {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 70%;
+}
+.colgroup div {
+  padding-bottom: 1px;
+  padding-right: 3px;
+}
+.container {
+  max-width: 100%;
+  height: ~"calc(100Vh - 120px)";  /*這裡的100Vh-120px直接寫會被計算掉*/
+  overflow-y: auto;
+}
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.modal.show {
+  z-index: 1073;
+}
+.modal-backdrop {
+  z-index:1072;
+}
+.modal-header {
+  border-bottom: 0px;
+}
+.modal-footer {
+  border-top: 0px;
+}
+.custom-select {
+  color: #828282;
+  border-color: #000000;
+  background-size: 5px 10px;
+  width: 100%;
+}
+.form-control:focus {
+  color: #828282;
+}
+.badge {
+  padding: 10px 0px;
+  font-size: 11pt;
+  height: 100%;
+  width: 100%;
+}
+.btn {
+  height: 100%;
+  color: #ffffff;
+}
+.badgeloop(@stylecnt);
+.card {
+  width: 100px;
+  height: 100px;
+  border: 0px;
+}
+.card-header {
+  font-size: 8px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  border-bottom: 0px;
+}
+.cardloop(@stylecnt);
+.card-content {
+  text-align: center;
+  padding-top: 5px;
+  font-size: 6px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.whitecardloop(@stylecnt);
+.col {
+  padding: 10px;
+  flex-grow: 0;
+}
+.col_img_size48 {
+  width: 48px;
+  cursor: pointer;
+}
+.openimg {
+  border-radius: .25rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+.openimg img {
+  max-width: 450px;
+}
+.openimg_path {
+  padding: 5px;
+  font-size: 8px;
+  text-align: center;
+}

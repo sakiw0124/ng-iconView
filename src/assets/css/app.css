@@ -1,0 +1,263 @@
+body {
+  width: 100%;
+  font-family: Consolas, 微軟正黑體;
+}
+.page-bg-s1 {
+  background: #F6E6D9;
+}
+.page-bg-s2 {
+  background: #ffecd2;
+}
+.page-bg-s3 {
+  background: #DBDBDB;
+}
+.page-bg-s4 {
+  background: #DEECDD;
+}
+.page-bg-s5 {
+  background: #f1e0d6;
+}
+.page-bg-s6 {
+  background: #b0d1e5;
+}
+.page-bg-s7 {
+  background: #CBEAEA;
+}
+.webtitle {
+  padding: 20px;
+  background-image: url("../images/webtitle.png");
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  background-size: 1700px;
+  background-color: #000000;
+  color: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 1071;
+  text-align: center;
+}
+.webtitle-s1 {
+  background-color: #EB7A77;
+}
+.webtitle-s2 {
+  background-color: #FCC8BC;
+}
+.webtitle-s3 {
+  background-color: #6c6b74;
+}
+.webtitle-s4 {
+  background-color: #756F52;
+}
+.webtitle-s5 {
+  background-color: #595775;
+}
+.webtitle-s6 {
+  background-color: #192E5B;
+}
+.webtitle-s7 {
+  background-color: #72afd3;
+}
+.colgroup {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 70%;
+}
+.colgroup div {
+  padding-bottom: 1px;
+  padding-right: 3px;
+}
+.container {
+  max-width: 100%;
+  height: calc(100Vh - 120px);
+  /*這裡的100Vh-120px直接寫會被計算掉*/
+  overflow-y: auto;
+}
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.modal.show {
+  z-index: 1073;
+}
+.modal-backdrop {
+  z-index: 1072;
+}
+.modal-header {
+  border-bottom: 0px;
+}
+.modal-footer {
+  border-top: 0px;
+}
+.custom-select {
+  color: #828282;
+  border-color: #000000;
+  background-size: 5px 10px;
+  width: 100%;
+}
+.form-control:focus {
+  color: #828282;
+}
+.badge {
+  padding: 10px 0px;
+  font-size: 11pt;
+  height: 100%;
+  width: 100%;
+}
+.btn {
+  height: 100%;
+  color: #ffffff;
+}
+.input-border-s1 {
+  border-color: #75686B;
+}
+.badge-s1 {
+  background-color: #75686B;
+}
+.btn-s1 {
+  background-color: #75686B;
+  border-color: #75686B;
+}
+.input-border-s2 {
+  border-color: #FF6C8C;
+}
+.badge-s2 {
+  background-color: #FF6C8C;
+}
+.btn-s2 {
+  background-color: #FF6C8C;
+  border-color: #FF6C8C;
+}
+.input-border-s3 {
+  border-color: #54678f;
+}
+.badge-s3 {
+  background-color: #54678f;
+}
+.btn-s3 {
+  background-color: #54678f;
+  border-color: #54678f;
+}
+.input-border-s4 {
+  border-color: #B5945F;
+}
+.badge-s4 {
+  background-color: #B5945F;
+}
+.btn-s4 {
+  background-color: #B5945F;
+  border-color: #B5945F;
+}
+.input-border-s5 {
+  border-color: #595775;
+}
+.badge-s5 {
+  background-color: #595775;
+}
+.btn-s5 {
+  background-color: #595775;
+  border-color: #595775;
+}
+.input-border-s6 {
+  border-color: #1d65a6;
+}
+.badge-s6 {
+  background-color: #1d65a6;
+}
+.btn-s6 {
+  background-color: #1d65a6;
+  border-color: #1d65a6;
+}
+.input-border-s7 {
+  border-color: #72afd3;
+}
+.badge-s7 {
+  background-color: #72afd3;
+}
+.btn-s7 {
+  background-color: #72afd3;
+  border-color: #72afd3;
+}
+.card {
+  width: 100px;
+  height: 100px;
+  border: 0px;
+}
+.card-header {
+  font-size: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-bottom: 0px;
+}
+.card-header-s1 {
+  background-color: #D7C4BB;
+}
+.card-header-s2 {
+  background-color: #D5A99F;
+}
+.card-header-s3 {
+  background-color: #9199be;
+}
+.card-header-s4 {
+  background-color: #C5C191;
+}
+.card-header-s5 {
+  background-color: #EAD9D5;
+}
+.card-header-s6 {
+  background-color: #72a2c0;
+}
+.card-header-s7 {
+  background-color: #B0E0E6;
+}
+.card-content {
+  text-align: center;
+  padding-top: 5px;
+  font-size: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.card-white-s1 {
+  background-color: #4B4149;
+}
+.card-white-s2 {
+  background-color: #D5A99F;
+}
+.card-white-s3 {
+  background-color: #646b74;
+}
+.card-white-s4 {
+  background-color: #C5C191;
+}
+.card-white-s5 {
+  background-color: #bf988f;
+}
+.card-white-s6 {
+  background-color: #f2a104;
+}
+.card-white-s7 {
+  background-color: #B0E0E6;
+}
+.col {
+  padding: 10px;
+  flex-grow: 0;
+}
+.col_img_size48 {
+  width: 48px;
+  cursor: pointer;
+}
+.openimg {
+  border-radius: .25rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+.openimg img {
+  max-width: 450px;
+}
+.openimg_path {
+  padding: 5px;
+  font-size: 8px;
+  text-align: center;
+}
