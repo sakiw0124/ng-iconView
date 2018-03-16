@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 
@@ -9,7 +10,14 @@ export class IconListService {
 
   constructor(private http: Http) { }
 
-  getWebSite() {
+  getStyleList(): Observable<any> {
+    return this.http.get('../assets/mock-data/styleList.json');
+  }
+
+  getWebSite(): Observable<any> {
+    return this.http.get('../assets/mock-data/webSiteList.json');
+  }
+  getWebSiteOld() {
     this.webSiteList = [
       { 'website' : 'Collection' },
       { 'website' : 'customicondesign.com' },
@@ -24,24 +32,11 @@ export class IconListService {
     return this.webSiteList;
   }
 
-  getSeriesList(selectWebSite) {
-    switch (selectWebSite) {
-      case 'Collection':
-        this.seriesList = [
-          { 'series' : 'diagram' },
-          { 'series' : 'diagram_v2' },
-          { 'series' : 'Drifting_psp' }
-        ];
-        break;
-      case 'customicondesign.com':
-        this.seriesList = [
-          { 'series' : 'customicondesign-cute1' },
-          { 'series' : 'customicondesign-flag2' },
-          { 'series' : 'customicondesign-flags' },
-          { 'series' : 'customicondesign-line-user-white' }
-        ];
-        break;
-    }
-    return this.seriesList;
+  getSeriesList(selectWebSite): Observable<any> {
+    return this.http.get('../assets/mock-data/' + selectWebSite + '/000_directory.json');
+  }
+
+  getIconList(selectWebSite, selectSeries): Observable<any> {
+    return this.http.get('../assets/mock-data/' + selectWebSite + '/' + selectSeries + '.json');
   }
 }

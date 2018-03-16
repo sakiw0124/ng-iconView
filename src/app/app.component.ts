@@ -8,16 +8,26 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'app';
-  styleId = 's' + new Date().getDay();
-  // 不能設空值, null, 奇怪
-  series = 'diagram';
+  styleId = '';
+  website = '';
+  series = '';
+  totalcount: number;
 
-  getStyleId(newObj: string) {
-    this.styleId = newObj;
+  // Component間的關係: http://oomusou.io/angular/component-interaction/
+  onStyleChange(styleId: string) {
+    this.styleId = styleId;
   }
 
-  getSeries(newObj: string) {
-    this.series = newObj;
+  onWebsiteChange(website: string) {
+    this.website = website;
+  }
+
+  onSeriesChange(series: string) {
+    this.series = series;
+  }
+
+  onTotalCountChange(totalcount: number) {
+    this.totalcount = totalcount;
   }
 
 }

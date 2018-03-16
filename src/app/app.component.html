@@ -1,2 +1,2 @@
-<app-header [styleId]="styleId" [series]="series" (styleIdTransfer)="getStyleId($event)" (seriesTransfer)="getSeries($event)"></app-header>
-<app-content [styleId]="styleId" [series]="series"></app-content>
+<app-header [styleId]="styleId" [website]="website" [series]="series" [totalcount]="totalcount" (styleIdChange)="onStyleChange($event)" (websiteChange)="onWebsiteChange($event)" (seriesChange)="onSeriesChange($event)"></app-header>
+<app-content [styleId]="styleId" [website]="website" [series]="series" (countChange)="onTotalCountChange($event)"></app-content>

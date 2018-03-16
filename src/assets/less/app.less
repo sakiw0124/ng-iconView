@@ -1,13 +1,17 @@
-@stylecnt: 7;
+@stylecnt: 11;
 .pageloop(@counter) when (@counter > 0){
   .pageloop((@counter - 1));
   @1: #F6E6D9;
-  @2: #ffecd2;
-  @3: #DBDBDB;
-  @4: #DEECDD;
-  @5: #f1e0d6;
-  @6: #b0d1e5;
-  @7: #CBEAEA;
+  @2: #EEDED0;
+  @3: #FBEAC7;
+  @4: #D2DDC7;
+  @5: #D4E0DD;
+  @6: #E4E0F0;
+  @7: #BBBBBB;
+  @8: #DBDBDB;
+  @9: #DEECDD;
+  @10: #f1e0d6;
+  @11: #b0d1e5;
   .page-bg-s@{counter}{
     background: @@counter;
   }
@@ -15,12 +19,16 @@
 .webtitleloop(@counter) when (@counter > 0){
   .webtitleloop((@counter - 1));
   @1: #EB7A77;
-  @2: #FCC8BC;
-  @3: #6c6b74;
-  @4: #756F52;
-  @5: #595775;
-  @6: #192E5B;
-  @7: #72afd3;
+  @2: #FB9966;
+  @3: #EFBB24;
+  @4: #91AD70;
+  @5: #6699A1;
+  @6: #9B90C2;
+  @7: #333333;
+  @8: #6c6b74;
+  @9: #756F52;
+  @10: #595775;
+  @11: #192E5B;
   .webtitle-s@{counter}{
     background-color: @@counter;
   }
@@ -28,12 +36,16 @@
 .badgeloop(@counter) when (@counter > 0){
   .badgeloop((@counter - 1));
   @1: #75686B;
-  @2: #FF6C8C;
-  @3: #54678f;
-  @4: #B5945F;
-  @5: #595775;
-  @6: #1d65a6;
-  @7: #72afd3;
+  @2: #8F818B;
+  @3: #68764B;
+  @4: #8D8B73;
+  @5: #AE9F89;
+  @6: #778786;
+  @7: #777777;
+  @8: #54678f;
+  @9: #B5945F;
+  @10: #595775;
+  @11: #1d65a6;
   .input-border-s@{counter}{
     // color: @@counter;
     border-color: @@counter;
@@ -49,29 +61,37 @@
 .cardloop(@counter) when (@counter > 0){
   .cardloop((@counter - 1));
   @1: #D7C4BB;
-  @2: #D5A99F;
-  @3: #9199be;
-  @4: #C5C191;
-  @5: #EAD9D5;
-  @6: #72a2c0;
-  @7: #B0E0E6;
+  @2: #CFC1C0;
+  @3: #D2CD69;
+  @4: #B5CAA0;
+  @5: #81C7D4;
+  @6: #C3D1CB;
+  @7: #999999;
+  @8: #9199be;
+  @9: #C5C191;
+  @10: #EAD9D5;
+  @11: #72a2c0;
   .card-header-s@{counter}{
     background-color: @@counter;
   }
 }
-.whitecardloop(@counter) when (@counter > 0){
-  .whitecardloop((@counter - 1));
-  @1: #4B4149;
-  @2: #D5A99F;
-  @3: #646b74;
-  @4: #C5C191;
-  @5: #bf988f;
-  @6: #f2a104;
-  @7: #B0E0E6;
-  .card-white-s@{counter}{
-    background-color: @@counter;
-  }
-}
+// .whitecardloop(@counter) when (@counter > 0){
+//   .whitecardloop((@counter - 1));
+//   @1: #4B4149;
+//   @2: #4B4656;
+//   @3: #3E3936;
+//   @4: #745D4A;
+//   @5: #855A5B;
+//   @6: #525A57;
+//   @7: #B0E0E6;
+//   @8: #646b74;
+//   @9: #C5C191;
+//   @10: #bf988f;
+//   @11: #f2a104;
+//   .card-white-s@{counter}{
+//     background-color: @@counter;
+//   }
+// }
 
 
 body {
@@ -84,8 +104,8 @@ body {
   background-image: url("../images/webtitle.png");
   background-repeat: no-repeat;
   background-position-y: bottom;
-  // background-size: 1920px;
-  background-size: image-width('../images/webtitle.png');
+  background-size: 1920px;
+  // background-size: image-width('../images/webtitle.png');
   background-color: #000000;
   color: #FFFFFF;
   position: sticky;
@@ -165,7 +185,7 @@ body {
   text-overflow:ellipsis;
   white-space: nowrap;
 }
-.whitecardloop(@stylecnt);
+// .whitecardloop(@stylecnt);
 .col {
   padding: 10px;
   flex-grow: 0;

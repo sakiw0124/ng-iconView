@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { IconListService } from './../icon-list.service';
 
 @Component({
@@ -6,34 +6,79 @@ import { IconListService } from './../icon-list.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnChanges {
 
   @Input() styleId: string;
+  @Input() website: string;
   @Input() series: string;
+  @Input() totalcount: number;
   // tslint:disable-next-line:no-output-on-prefix
-  @Output() styleIdTransfer = new EventEmitter();
-  @Output() seriesTransfer = new EventEmitter();
+  @Output() styleIdChange = new EventEmitter();
+  @Output() websiteChange = new EventEmitter();
+  @Output() seriesChange = new EventEmitter();
   sorticon = 'fa fa-sort';
   keyword = '';
   flag = 'B';
-  totalcount = 0;
-  webSite = '';
-  webSiteList = [];
+  // totalcount = 0;
+  websiteList = [];
   seriesList = [];
+  styleList = [];
 
   constructor(private iconListService: IconListService) { }
 
-  ngOnInit() {
-    // this.webSiteList = this.iconListService.webSiteList;
-    // 可以直接取用Service的變數, 但固定值沒有意義, 不會自己去呼叫class
-    this.webSiteList = this.iconListService.getWebSite();
-    if ( this.webSiteList.length > 0 ) {
-      this.webSite = this.webSiteList[0].website;
+  ngOnChanges() {
+    // 所有@Input的change都會跑, 所以要判斷讓他不要重複
+    if ( this.website === null || this.website === '' || this.series === null || this.series === '' ) {
+      // this.websiteList = this.iconListService.websiteList;
+      // 可以直接取用Service的變數, 但固定值沒有意義, 不會自己去呼叫class
+      // this.websiteList = this.iconListService.getWebSite();
+      // 類似上述做法，只是固定在Service的值一樣沒有意義
+      this.iconListService.getWebSite().subscribe(
+        data => {
+          this.websiteList = data.json();
+          if ( this.websiteList.length > 0 ) {
+            this.website = this.websiteList[0].website;
+          }
+          // this.seriesList = this.iconListService.getSeriesList(this.website);
+          this.iconListService.getSeriesList(this.website).subscribe(
+            data2 => {
+              this.seriesList = data2.json();
+              if ( this.seriesList.length > 0 ) {
+                this.series = this.seriesList[0].series;
+                // 一組取得才一起送出, 否則ngOnChanages會跑很多次
+                this.websiteChange.emit(this.website);
+                this.seriesChange.emit(this.series);
+              }
+            },
+            error => {
+              console.log('error:' + error);
+            },
+            () => { // complete
+            }
+          );
+        },
+        error => {
+          console.log('error:' + error);
+        },
+        () => { // complete
+        }
+      );
     }
-    this.seriesList = this.iconListService.getSeriesList(this.webSite);
-    if ( this.seriesList.length > 0 ) {
-      this.series = this.seriesList[0].series;
-      this.seriesTransfer.emit(this.series);
+    if ( this.styleList.length <= 0 ) {
+      this.iconListService.getStyleList().subscribe(
+        data => {
+          this.styleList = data.json();
+          if ( this.styleId === null || this.styleId === '' || this.styleId === 'undefined' ) {
+            this.styleId = 's' + new Date().getDay();
+            this.styleIdChange.emit(this.styleId);
+          }
+        },
+        error => {
+          console.log('get style list error:' + error);
+        },
+        () => {
+        }
+      );
     }
   }
 
@@ -63,7 +108,7 @@ export class HeaderComponent implements OnInit {
   }
 
   styleChange() {
-    this.styleIdTransfer.emit(this.styleId);
+    this.styleIdChange.emit(this.styleId);
   }
 
   getClass(styleId) {
@@ -73,18 +118,32 @@ export class HeaderComponent implements OnInit {
     return styleId;
   }
 
-  websiteChange(newObj) {
-    this.webSite = newObj;
-    this.seriesList = this.iconListService.getSeriesList(this.webSite);
-    if ( this.seriesList.length > 0 ) {
-      this.series = this.seriesList[0].series;
-      this.seriesTransfer.emit(this.series);
+  onWebsiteChange(newObj) {
+    this.website = newObj;
+    if (this.website !== null && this.website !== '' && this.website !== 'undefined') {
+      // this.seriesList = this.iconListService.getSeriesList(this.website);
+      this.iconListService.getSeriesList(this.website).subscribe(
+        data => {
+          this.seriesList = data.json();
+          if ( this.seriesList.length > 0 ) {
+            this.series = this.seriesList[0].series;
+            this.websiteChange.emit(this.website);
+            this.seriesChange.emit(this.series);
+          }
+        },
+        error => {
+          console.log('error:' + error);
+        },
+        () => { // complete
+        }
+      );
     }
   }
 
-  seriesChange(newObj) {
+  onSeriesChange(newObj) {
     this.series = newObj;
-    this.seriesTransfer.emit(this.series);
+    // 這裡是不是要推送去外層讓其他component知道這個值?
+    this.seriesChange.emit(this.series);
   }
 
 }

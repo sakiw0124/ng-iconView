@@ -1,12 +1,12 @@
 <div class="webtitle border border-light border-top-0 border-left-0 border-right-0" [ngClass]="getClass('webtitle')">
   <form class="colgroup" #myForm="ngForm">
       <div style="width: 30%;">
-        <select class="custom-select" [ngClass]="getClass('input-border')" name="webSite" [ngModel]="webSite" (ngModelChange)="websiteChange($event)">
-          <option *ngFor="let item of webSiteList;let itemIndex = index" [value]="item.website">{{ itemIndex }}. {{ item.website }}</option>
+        <select class="custom-select" [ngClass]="getClass('input-border')" name="website" [ngModel]="website" (ngModelChange)="onWebsiteChange($event)">
+          <option *ngFor="let item of websiteList;let itemIndex = index" [value]="item.website">{{ itemIndex }}. {{ item.website }}</option>
         </select>
       </div>
       <div style="width: 60%;">
-        <select class="custom-select" [ngClass]="getClass('input-border')" name="series" [ngModel]="series" (ngModelChange)="seriesChange($event)">
+        <select class="custom-select" [ngClass]="getClass('input-border')" name="series" [ngModel]="series" (ngModelChange)="onSeriesChange($event)">
           <option *ngFor="let item of seriesList;let itemIndex = index" [value]="item.series">{{ itemIndex }}. {{ item.series }}</option>
         </select>
       </div>
@@ -26,13 +26,7 @@
       </div>
       <div style="width: 20%;">
         <select class="custom-select" [ngClass]="getClass('input-border')" name="styleId" [(ngModel)]="styleId" (ngModelChange)="styleChange()">
-          <option value="s1">01. 紅紅的</option>
-          <option value="s2">02. 小粉</option>
-          <option value="s3">03. 哥德式建築</option>
-          <option value="s4">04. 小綠</option>
-          <option value="s5">05. 地中海藍</option>
-          <option value="s6">06. 異國蘭花</option>
-          <option value="s7">07. 小藍</option>
+          <option *ngFor="let item of styleList" [value]="item.styleid">{{ item.styleid }}. {{ item.stylename }}</option>
         </select>
       </div>
   </form>

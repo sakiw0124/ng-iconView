@@ -1,18 +1,41 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnChanges, Input, Output, SimpleChange, EventEmitter } from '@angular/core';
+import { IconListService } from './../icon-list.service';
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
-export class ContentComponent implements OnInit {
+
+export class ContentComponent implements OnChanges {
 
   @Input() styleId: string;
+  @Input() website: string;
   @Input() series: string;
+  @Input() totalcount: number;
+  @Output() countChange = new EventEmitter<number>();
+  iconList = [];
 
-  constructor() { }
+  constructor(private iconListService: IconListService) { }
 
-  ngOnInit() {
+  // 注意生命週期, https://ithelp.ithome.com.tw/articles/10188047
+  // OnInit只有一次的話, 為了content.component會一直接收header的值, 直接改為OnChanges, 因為不知道OnInit跟OnChanges一起用的方式
+  // 不要implements, 用onChange()跟onInit() -> 不行, onInit()啟動不了
+  ngOnChanges() {
+    if ( this.website !== null && this.website !== '' && this.website !== 'undefined' &&
+         this.series !== null && this.series !== '' && this.series !== 'undefined') {
+      this.iconListService.getIconList(this.website, this.series).subscribe(
+        data => {
+          this.iconList = data.json();
+          this.countChange.emit(this.iconList.length);
+        },
+        error => {
+          console.log('error:' + error);
+        },
+        () => { // complete
+        }
+      );
+    }
   }
 
   getClass(styleId) {
@@ -34,4 +57,5 @@ export class ContentComponent implements OnInit {
     }
     return styleId;
   }
+
 }

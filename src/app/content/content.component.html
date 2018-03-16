@@ -1,8 +1,8 @@
 <div class="container" [ngClass]="[getClass('page-bg')]">
 <div class="row">
-  <div class="col">
+  <div class="col" *ngFor="let item of iconList">
     <div class="card" [ngClass]="[getClass('card-border'),getWhiteClass('card')]">
-      <div class="card-header" [ngClass]="getClass('card-header')" title="item.header">item.header</div>
+      <div class="card-header" [ngClass]="getClass('card-header')" [title]="item.header">{{item.header}}</div>
       <div class="card-content">
         <img class="card-img-top col_img_size48" src="https://avatars2.githubusercontent.com/u/30523381?s=40&v=4" ng-alt="item.header" title="item.path" data-toggle="modal" data-target="#exampleModal" click="openimg(item,divclassid)">
       </div>
