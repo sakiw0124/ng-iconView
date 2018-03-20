@@ -18,7 +18,7 @@
       </div>
       <div style="width: 80%;">
         <div class="input-group">
-          <input type="text" class="form-control" [ngClass]="getClass('input-border')" name="keyword" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="keyword">
+          <input type="text" class="form-control" [ngClass]="getClass('input-border')" name="keyword" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="keyword" (keyup)="onKey($event)">
           <span class="input-group-btn">
             <button class="btn btn-secondary" [ngClass]="getClass('btn')" type="button" (click)="clearKeyword()"><i class="fa fa-bath" aria-hidden="true"></i></button>
           </span>

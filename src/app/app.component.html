@@ -1,2 +1,3 @@
-<app-header [styleId]="styleId" [website]="website" [series]="series" [totalcount]="totalcount" (styleIdChange)="onStyleChange($event)" (websiteChange)="onWebsiteChange($event)" (seriesChange)="onSeriesChange($event)"></app-header>
-<app-content [styleId]="styleId" [website]="website" [series]="series" (countChange)="onTotalCountChange($event)"></app-content>
+<app-header [styleId]="styleId" [series]="series" [totalcount]="totalcount" (styleIdChange)="onStyleChange($event)" (websiteChange)="onWebsiteChange($event)" (seriesChange)="onSeriesChange($event)" (keywordChange)="onKeywordChange($event)" (sortTypeChange)="onSortTypeChange($event)"></app-header>
+<app-content [styleId]="styleId" [website]="website" [series]="series" [keyword]="keyword" [sorttype]="sorttype" (countChange)="onTotalCountChange($event)"></app-content>
+<!-- 還沒有搞懂上面的Input, Output到底怎麼綁 -->

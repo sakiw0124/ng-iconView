@@ -16,13 +16,15 @@ export class HeaderComponent implements OnChanges {
   @Output() styleIdChange = new EventEmitter();
   @Output() websiteChange = new EventEmitter();
   @Output() seriesChange = new EventEmitter();
+  @Output() keywordChange = new EventEmitter();
+  @Output() sortTypeChange = new EventEmitter();
   sorticon = 'fa fa-sort';
-  keyword = '';
-  flag = 'B';
+  flag = 'O';
   // totalcount = 0;
   websiteList = [];
   seriesList = [];
   styleList = [];
+  keyword = '';
 
   constructor(private iconListService: IconListService) { }
 
@@ -51,14 +53,14 @@ export class HeaderComponent implements OnChanges {
               }
             },
             error => {
-              console.log('error:' + error);
+              console.log('get series list error:' + error);
             },
             () => { // complete
             }
           );
         },
         error => {
-          console.log('error:' + error);
+          console.log('get website list error:' + error);
         },
         () => { // complete
         }
@@ -82,29 +84,37 @@ export class HeaderComponent implements OnChanges {
     }
   }
 
+  onKey(event: any) {
+    this.keyword = event.target.value;
+    this.keywordChange.emit(this.keyword);
+  }
+
   clearKeyword() {
     this.keyword = '';
+    this.keywordChange.emit(this.keyword);
   }
 
   changeSorting() {
+    // sorttype: O=>Original=>原始, A=>ASC=>遞增, D=>DESC=>遞減, 順序O=>A=>D
     switch (this.flag) {
-      case 'A':
+      case 'D':
         this.sorticon = 'fa fa-sort';
-        this.flag = 'B';
+        this.flag = 'O';
         break;
-      case 'B':
+      case 'O':
         this.sorticon = 'fa fa-sort-alpha-asc';
-        this.flag = 'C';
-        break;
-      case 'C':
-        this.sorticon = 'fa fa-sort-alpha-desc';
         this.flag = 'A';
+        break;
+      case 'A':
+        this.sorticon = 'fa fa-sort-alpha-desc';
+        this.flag = 'D';
         break;
       default:
         this.sorticon = 'fa fa-sort';
-        this.flag = 'B';
+        this.flag = 'O';
         break;
     }
+    this.sortTypeChange.emit(this.flag);
   }
 
   styleChange() {
@@ -132,7 +142,7 @@ export class HeaderComponent implements OnChanges {
           }
         },
         error => {
-          console.log('error:' + error);
+          console.log('get series list error:' + error);
         },
         () => { // complete
         }

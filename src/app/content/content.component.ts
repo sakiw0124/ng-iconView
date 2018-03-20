@@ -13,6 +13,8 @@ export class ContentComponent implements OnChanges {
   @Input() website: string;
   @Input() series: string;
   @Input() totalcount: number;
+  @Input() keyword: string;
+  @Input() sorttype: string;
   @Output() countChange = new EventEmitter<number>();
   iconList = [];
 
@@ -22,20 +24,42 @@ export class ContentComponent implements OnChanges {
   // OnInit只有一次的話, 為了content.component會一直接收header的值, 直接改為OnChanges, 因為不知道OnInit跟OnChanges一起用的方式
   // 不要implements, 用onChange()跟onInit() -> 不行, onInit()啟動不了
   ngOnChanges() {
+    // 圖片載入以後, 排序超慢, 換series超慢, 好像時好時壞, 需觀察看看
     if ( this.website !== null && this.website !== '' && this.website !== 'undefined' &&
          this.series !== null && this.series !== '' && this.series !== 'undefined') {
       this.iconListService.getIconList(this.website, this.series).subscribe(
         data => {
           this.iconList = data.json();
           this.countChange.emit(this.iconList.length);
+          if ( this.sorttype === 'A' ) {
+            this.iconList = this.iconList.sort(this.sortmethod);
+          }
+          if ( this.sorttype === 'D' ) {
+            this.iconList = this.iconList.sort(this.sortmethod);
+            this.iconList = this.iconList.reverse();
+          }
+          if ( this.keyword !== null && this.keyword !== '' && this.website !== 'undefined' ) {
+            this.iconList = this.iconList.filter(iconList => iconList.header.includes(this.keyword));
+          }
         },
         error => {
-          console.log('error:' + error);
+          console.log('get icon list error:' + error);
         },
         () => { // complete
         }
       );
     }
+  }
+
+  // .sort(this.sortmethod)這方法, 此function裡面不能用global變數來控制asc或desc
+  private sortmethod(a, b) {
+    if ( a.header.toLowerCase() > b.header.toLowerCase() ) {
+      return 1;
+    }
+    if ( a.header.toLowerCase() < b.header.toLowerCase() ) {
+      return -1;
+    }
+    return 0;
   }
 
   getClass(styleId) {

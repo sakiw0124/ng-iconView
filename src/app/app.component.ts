@@ -12,6 +12,8 @@ export class AppComponent {
   website = '';
   series = '';
   totalcount: number;
+  keyword = '';
+  sorttype = 'O';
 
   // Component間的關係: http://oomusou.io/angular/component-interaction/
   onStyleChange(styleId: string) {
@@ -30,4 +32,11 @@ export class AppComponent {
     this.totalcount = totalcount;
   }
 
+  onKeywordChange(keyword: string) {
+    this.keyword = keyword;
+  }
+
+  onSortTypeChange(sorttype: string) {
+    this.sorttype = sorttype;
+  }
 }
