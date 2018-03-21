@@ -84,6 +84,7 @@ export class HeaderComponent implements OnChanges {
     }
   }
 
+  // 原html model綁定後的變化, 也要改成(keyup)來指定事件處理, 因為切Component了, 要將值傳遞到另一個Component裡面
   onKey(event: any) {
     this.keyword = event.target.value;
     this.keywordChange.emit(this.keyword);

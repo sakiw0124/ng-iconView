@@ -4,7 +4,7 @@
     <div class="card" [ngClass]="[getClass('card-border'),getWhiteClass('card')]">
       <div class="card-header" [ngClass]="getClass('card-header')" [title]="item.header">{{item.header}}</div>
       <div class="card-content">
-        <img class="card-img-top col_img_size48" src="../../assets/images/icon/{{item.path}}" ng-alt="item.header" title="item.path" data-toggle="modal" data-target="#exampleModal" click="openimg(item,divclassid)">
+        <img class="card-img-top col_img_size48" src="http://127.0.0.1:8887/{{item.path}}" ng-alt="item.header" title="item.path" data-toggle="modal" data-target="#exampleModal" click="openimg(item,divclassid)">
       </div>
     </div>
   </div>
